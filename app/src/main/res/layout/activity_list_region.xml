@@ -7,13 +7,45 @@
   tools:context=".LugaresTuristicos.ListRegionActivity">
 
 
+    <LinearLayout
+      android:layout_width="414dp"
+      android:layout_height="59dp"
+      android:orientation="horizontal"
+      tools:layout_editor_absoluteX="0dp"
+      tools:layout_editor_absoluteY="0dp">
+
+        <ImageButton
+          android:id="@+id/imageButton4"
+          android:layout_width="wrap_content"
+          android:layout_height="79dp"
+          app:srcCompat="@android:drawable/ic_menu_search"
+          tools:layout_editor_absoluteX="4dp"
+          tools:layout_editor_absoluteY="0dp" />
+
+        <EditText
+          android:id="@+id/editText"
+          android:layout_width="312dp"
+          android:layout_height="48dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginBottom="8dp"
+          android:ems="10"
+          android:hint="Buscar Huarique"
+          android:inputType="textPersonName"
+          app:layout_constraintBottom_toTopOf="@+id/imageViewImagen"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintVertical_bias="0.0"
+          tools:layout_editor_absoluteX="120dp" />
+    </LinearLayout>
+
     <ImageView
       android:id="@+id/imageViewImagen"
-      android:layout_width="match_parent"
+      android:layout_width="362dp"
       android:layout_height="197dp"
       android:layout_alignParentStart="true"
       android:layout_alignParentEnd="true"
+      android:layout_marginStart="8dp"
       android:layout_marginTop="52dp"
+      android:layout_marginEnd="8dp"
       android:layout_marginBottom="8dp"
       android:adjustViewBounds="true"
       android:contentDescription="Descripcion del contenido de la imagen"
@@ -21,8 +53,10 @@
       android:scaleType="fitXY"
       android:src="@drawable/costa"
       app:layout_constraintBottom_toTopOf="@+id/imageViewImagen2"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      tools:layout_editor_absoluteX="0dp" />
+      app:layout_constraintVertical_bias="0.562" />
 
     <TextView
       android:id="@+id/myImageViewText"
@@ -34,7 +68,8 @@
       android:layout_alignBottom="@+id/imageViewImagen"
       android:gravity="center"
       android:text="COSTA"
-      android:textColor="#000000"
+      android:textColor="@android:color/background_light"
+      android:textSize="24sp"
       app:layout_constraintBottom_toBottomOf="@+id/imageViewImagen"
       app:layout_constraintEnd_toEndOf="@+id/imageViewImagen"
       app:layout_constraintStart_toStartOf="@+id/imageViewImagen"
@@ -43,10 +78,12 @@
 
     <ImageView
       android:id="@+id/imageViewImagen2"
-      android:layout_width="match_parent"
+      android:layout_width="368dp"
       android:layout_height="197dp"
       android:layout_alignParentStart="true"
       android:layout_alignParentEnd="true"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
       android:layout_marginBottom="28dp"
       android:adjustViewBounds="true"
       android:contentDescription="Descripcion del contenido de la imagen"
@@ -54,7 +91,8 @@
       android:scaleType="fitXY"
       android:src="@drawable/sierra"
       app:layout_constraintBottom_toTopOf="@+id/imageViewImagen3"
-      tools:layout_editor_absoluteX="0dp" />
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
       android:id="@+id/myImageViewText2"
@@ -75,10 +113,12 @@
 
     <ImageView
       android:id="@+id/imageViewImagen3"
-      android:layout_width="match_parent"
+      android:layout_width="368dp"
       android:layout_height="197dp"
       android:layout_alignParentStart="true"
       android:layout_alignParentEnd="true"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
       android:layout_marginBottom="20dp"
       android:adjustViewBounds="true"
       android:contentDescription="Descripcion del contenido de la imagen"
@@ -86,7 +126,8 @@
       android:scaleType="fitXY"
       android:src="@drawable/selva"
       app:layout_constraintBottom_toBottomOf="parent"
-      tools:layout_editor_absoluteX="0dp" />
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
       android:id="@+id/myImageViewText3"

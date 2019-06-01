@@ -9,7 +9,9 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".LugaresTuristicos.ListRegionActivity"></activity>
+    <activity android:name=".LugaresTuristicos.ListRegionActivity"
+      android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+      ></activity>
     <activity android:name=".Principal.Main2Activity" />
     <activity
       android:name=".Principal.LoginActivity"
