@@ -1,6 +1,7 @@
 package com.turismogo.Bean;
 
 public class HuariqueBean {
+    String id_huarique;
     String nombre;
     String promociones;
     String distrito;
@@ -10,12 +11,21 @@ public class HuariqueBean {
     public HuariqueBean() {
     }
 
-    public HuariqueBean(String nombre, String promociones, String distrito, String distancia,String mensaje) {
+    public HuariqueBean(String id_huarique,String nombre, String promociones, String distrito, String distancia,String mensaje) {
+        this.id_huarique=id_huarique;
         this.nombre = nombre;
         this.promociones = promociones;
         this.distrito = distrito;
         this.distancia = distancia;
         this.mensaje = mensaje;
+    }
+
+    public String getId_huarique() {
+        return id_huarique;
+    }
+
+    public void setId_huarique(String id_huarique) {
+        this.id_huarique = id_huarique;
     }
 
     public String getNombre() {
