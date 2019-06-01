@@ -57,12 +57,12 @@
     android:layout_marginBottom="88dp"
     android:text="Registro"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toStartOf="@+id/textView2"
+    app:layout_constraintEnd_toStartOf="@+id/txtsaltar"
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent" />
 
   <TextView
-    android:id="@+id/textView2"
+    android:id="@+id/txtsaltar"
     android:layout_width="99dp"
     android:layout_height="35dp"
     android:layout_marginBottom="88dp"
