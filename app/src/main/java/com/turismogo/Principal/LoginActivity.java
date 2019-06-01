@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.turismogo.LugaresTuristicos.ListRegionActivity;
+import com.turismogo.Menu.MenuActivity;
 import com.turismogo.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     txtsaltar.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Intent intent = new Intent(LoginActivity.this, ListRegionActivity.class);
+        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent);
       }
     });
