@@ -1,6 +1,7 @@
 package com.turismogo.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.turismogo.Bean.HuariqueBean;
 import com.squareup.picasso.Picasso;
+import com.turismogo.Menu.HuariqueActivity;
 import com.turismogo.R;
 
 import java.util.ArrayList;
@@ -51,6 +53,15 @@ public class HuariqueAdapter extends RecyclerView.Adapter<HuariqueAdapter.Notici
                     public void onError() {
                     }
                 });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, HuariqueActivity.class);
+                intent.putExtra("identidificador", huariqueBean.getId_huarique()+"");
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

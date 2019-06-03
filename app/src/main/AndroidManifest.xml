@@ -13,7 +13,8 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true">
-    <activity android:name=".LugaresTuristicos.ListarHuariqueActivity"></activity>
+    <activity android:name=".Menu.CalculadoraActivity"></activity>
+    <activity android:name=".LugaresTuristicos.ListarHuariqueActivity" />
     <activity
       android:name=".Menu.MenuActivity"
       android:label="@string/title_activity_menu"
@@ -22,6 +23,9 @@
       android:name=".LugaresTuristicos.ListRegionActivity"
       android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     <activity android:name=".Principal.Main2Activity" />
+    <activity
+      android:name=".Menu.HuariqueActivity"
+      android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     <activity
       android:name=".Principal.LoginActivity"
       android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

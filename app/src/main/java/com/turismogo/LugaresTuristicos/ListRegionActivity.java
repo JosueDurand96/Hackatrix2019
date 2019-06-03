@@ -25,7 +25,7 @@ public class ListRegionActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         Intent intent = new Intent(getApplicationContext(),ListarHuariqueActivity.class);
-        intent.putExtra("costa",id_regionCosta);
+       // intent.putExtra("costa",id_regionCosta);
         startActivity(intent);
       }
     });
@@ -33,7 +33,7 @@ public class ListRegionActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         Intent intent = new Intent(getApplicationContext(),ListarHuariqueActivity.class);
-        intent.putExtra("sierra",id_regionSierra);
+        //intent.putExtra("sierra",id_regionSierra);
         startActivity(intent);
       }
     });
@@ -41,7 +41,7 @@ public class ListRegionActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         Intent intent = new Intent(getApplicationContext(),ListarHuariqueActivity.class);
-        intent.putExtra("selva",id_regionSelva);
+        //intent.putExtra("selva",id_regionSelva);
         startActivity(intent);
       }
     });

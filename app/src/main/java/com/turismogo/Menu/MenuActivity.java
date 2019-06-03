@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,7 +18,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,7 +29,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.turismogo.Adapter.HuariqueAdapter;
+import com.turismogo.Adapter.PlatosAdapter;
 import com.turismogo.Bean.HuariqueBean;
+import com.turismogo.Bean.PlatosBean;
 import com.turismogo.LugaresTuristicos.ListRegionActivity;
 import com.turismogo.R;
 
@@ -41,6 +46,7 @@ public class MenuActivity extends AppCompatActivity
 
   private GridLayoutManager glm;
   private HuariqueAdapter huariqueAdapter;
+  private PlatosAdapter plataosAdapter;
   private RecyclerView rmHuarique;
   LinearLayout btnGo;
 
@@ -98,6 +104,7 @@ public class MenuActivity extends AppCompatActivity
             huariqueBean.setDistancia(jsonObject.getString("distancia"));
             huariqueBean.setPromociones(jsonObject.getString("promociones"));
             huariqueBean.setMensaje(jsonObject.getString("imagen"));
+            huariqueBean.setId_huarique(jsonObject.getString("id"));
 
             lista.add(huariqueBean);
 
@@ -165,17 +172,78 @@ public class MenuActivity extends AppCompatActivity
     int id = item.getItemId();
 
     if (id == R.id.nav_camera) {
-      // Handle the camera action
-    } else if (id == R.id.nav_gallery) {
+      AlertDialog.Builder mBuilder = new AlertDialog.Builder(MenuActivity.this);
+      View mView = getLayoutInflater().inflate(R.layout.activity_calculadora, null);
+      mBuilder.setCancelable(false);
+      Button btnTomarFoto = mView.findViewById(R.id.buttonCalc);
+      final EditText txtprecio = mView.findViewById(R.id.txtprecio);
+      mBuilder.setView(mView);
+      final AlertDialog alertdialog = mBuilder.create();
+      btnTomarFoto.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
 
-    } else if (id == R.id.nav_slideshow) {
+          RequestQueue queue = Volley.newRequestQueue(MenuActivity.this);  // this = context
 
-    } else if (id == R.id.nav_manage) {
+          JSONObject jsonObject = new JSONObject();
+          try {
+            jsonObject.put("precio",txtprecio.getText()+"");
+          }catch (Exception e){
 
-    } else if (id == R.id.nav_share) {
+          }
 
-    } else if (id == R.id.nav_send) {
+          final ArrayList<PlatosBean> platosBeans = new ArrayList<>();
 
+          String url = "http://34.74.187.30/ApiRestHackathon2019/Controller/HuariqueController.php?op=4";
+          JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject,
+            new Response.Listener<JSONObject>()
+            {
+              @Override
+              public void onResponse(JSONObject response) {
+
+                Log.e("mwnasJDASFADSJFADS",response+"");
+                try {
+                  JSONArray jsonArray = response.getJSONArray("huariques");
+                  for (int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                    PlatosBean bean = new PlatosBean();
+                    bean.setMenu(jsonObject.getString("menu"));
+                    bean.setPrecio(jsonObject.getString("precio"));
+                    bean.setUrl(jsonObject.getString("url"));
+
+                    platosBeans.add(bean);
+                  }
+
+                  glm = new GridLayoutManager(MenuActivity.this, 1);
+                  rmHuarique.setLayoutManager(glm);
+                  plataosAdapter = new PlatosAdapter(platosBeans, MenuActivity.this);
+                  rmHuarique.setAdapter(plataosAdapter);
+
+
+                }catch (Exception e){
+
+                }
+              }
+            },
+            new Response.ErrorListener()
+            {
+              @Override
+              public void onErrorResponse(VolleyError error) {
+                // error
+                Log.d("Error.Response", error+"");
+              }
+            }
+          ) {
+
+          };
+          queue.add(postRequest);
+
+          alertdialog.dismiss();
+        }
+      });
+      alertdialog.show();
     }
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

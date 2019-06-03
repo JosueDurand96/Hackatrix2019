@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -38,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListarHuariqueActivity extends AppCompatActivity {
-  private ListView lstProductos;
+
   String costa,sierra,selva;
   EditText editText2;
 
@@ -120,7 +119,7 @@ public class ListarHuariqueActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
 
-        buscar();
+
       }
     });
 
@@ -141,7 +140,7 @@ public class ListarHuariqueActivity extends AppCompatActivity {
       HttpURLConnection connection = null;
       BufferedReader reader = null;
       boolean resul = true;
-      String urlApiREST = "http://34.74.187.30/ApiRestHackathon2019/Controller/HuariqueController.php?op=3"+"&region="+"2"+"&nombre="+ editText2.getText().toString();
+      String urlApiREST = "http://www.capacitasoft.com/site/Cliente/BuscarProducto.php?nombre=" ;
       try {
         URL url = new URL(urlApiREST);
         connection = (HttpURLConnection) url.openConnection();
@@ -183,8 +182,29 @@ public class ListarHuariqueActivity extends AppCompatActivity {
 
 
       if (result) {
+        //Rellenamos la lista con los nombres de los productos
+        //Rellenamos la lista con los resultados
         HuariqueAdapterList adaptador = new HuariqueAdapterList(ListarHuariqueActivity.this, listaProductos);
-        lstProductos.setAdapter(adaptador);
+
+
+       // lstProductos.setAdapter(adaptador);
+
+
+//                lstProductos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//
+//                        Producto elegido = (Producto) parent.getItemAtPosition(position);
+//
+//                        CharSequence texto = "Seleccionado: " + elegido.getPrecio();
+//
+//                        Toast toast = Toast.makeText(Manteni_Producto.this, texto, Toast.LENGTH_LONG);
+//                        toast.show();
+//
+//
+//                    }
+//                });
       }
     }
   }
